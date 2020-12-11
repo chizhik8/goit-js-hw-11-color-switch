@@ -22,11 +22,12 @@ refs.buttons[0].addEventListener('click', start);
 refs.buttons[1].addEventListener('click', stop);
 
 function start() {
-    changeColor = true;
+  if (changeColor) { return };
+  changeColor = true;
     const intervalId = setInterval(() => {
         if (!changeColor) { clearInterval(intervalId); return; };
         refs.body.style.background = colors[randomIntegerFromInterval(0, colors.length - 1)];
-    }, 500);    
+    }, 1000);
 };
 
 function stop() { changeColor = false; };
